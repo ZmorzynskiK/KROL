@@ -26,4 +26,4 @@ python main.py
 TODO
 
 ## Windows Audio Device Graph Isolation (audiodg.exe) issue
-Sometimes, the audiodg.exe service might consume all of your RAM. This is probably casued by some bugs in either Windows 8/10 or audio drivers. In my case (Lenovo T540p), updating the Realtek audio drivers, motherboard drivers, disabling microphone enhancments helped a lot and the memory consumption dropped significantly.
+Sometimes, the audiodg.exe service might consume all of your RAM. This is probably casued by some bugs in either Windows 8/10 or audio drivers. In my case (Lenovo T540p), updating the Realtek audio drivers, motherboard drivers, disabling microphone enhancments and disabling microphone exclusive modes helped a lot and the memory consumption dropped significantly.
