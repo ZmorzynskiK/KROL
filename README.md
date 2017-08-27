@@ -17,6 +17,12 @@ Right now it just keeps track of the most recent of those activities.
 1. Optional: there's a Visual Studio PTVS solution in src folder
 
 ## How to use it
+Just run `main.py`:
+
+```
+python main.py
+```
+
 TODO
 
 ## Windows Audio Device Graph Isolation (audiodg.exe) issue
