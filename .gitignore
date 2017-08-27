@@ -2,3 +2,4 @@
 /src/KROL/__pycache__
 /src/KROL/*.user
 /src/KROL/basket.json
+/src/KROL/settings.json
