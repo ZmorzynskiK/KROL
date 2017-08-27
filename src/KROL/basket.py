@@ -29,7 +29,9 @@ class Basket(object):
             return None
         return datetime.datetime.strptime(dstr, self._dt_format)
 
-    def set_last_poo_date(self, date = datetime.datetime.now()):
+    def set_last_poo_date(self, date = None):
+        if date == None:
+            date = datetime.datetime.now()
         self._data[Basket.data_key.LAST_POO_DATE] = date.strftime(self._dt_format)
         self._save_data()
 
@@ -39,7 +41,9 @@ class Basket(object):
             return None
         return datetime.datetime.strptime(dstr, self._dt_format)
 
-    def set_last_eat_date(self, date = datetime.datetime.now()):
+    def set_last_eat_date(self, date = None):
+        if date == None:
+            date = datetime.datetime.now()
         self._data[Basket.data_key.LAST_EAT_DATE] = date.strftime(self._dt_format)
         self._save_data()
 
@@ -49,7 +53,9 @@ class Basket(object):
             return None
         return datetime.datetime.strptime(dstr, self._dt_format)
 
-    def set_last_sleep_date(self, date = datetime.datetime.now()):
+    def set_last_sleep_date(self, date = None):
+        if date == None:
+            date = datetime.datetime.now()
         self._data[Basket.data_key.LAST_SLEEP_DATE] = date.strftime(self._dt_format)
         self._save_data()
 
