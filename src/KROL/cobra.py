@@ -144,14 +144,16 @@ class Cobra(threading.Thread):
         elif diff_hours <= 1:
             self._speaker.Speak(short_ago_str.format(diff_mins))
         else:
-            self._speaker.Speak(mid_ago_str.format(diff_hours))
+            ih = int(diff_hours)
+            im = int((diff_hours - ih)*60.0)
+            self._speaker.Speak(mid_ago_str.format(ih, im))
 
     def _handle_get_last_poo(self):
         last_poo = self._basket.get_last_poo_date()
         if last_poo == None:
             self._speaker.Speak("Nie wiem kiedy była ostatnia kupa")
         else:
-            self._speak_timed(last_poo, "Ostatnia kupa była {:.0f} minut temu", "Ostatnia kupa była {:.1f} godziny temu",
+            self._speak_timed(last_poo, "Ostatnia kupa była {:.0f} minut temu", "Ostatnia kupa była {} godzin {} minut temu",
                               "Ostatnia kupa była ponad 6 godzin temu, czyli dość dawno", 6 )
             
     def _handle_set_last_poo(self):
@@ -163,7 +165,7 @@ class Cobra(threading.Thread):
         if last_eat == None:
             self._speaker.Speak("Nie wiem kiedy było ostatnie karmienie, zwyrodnialcy")
         else:
-            self._speak_timed(last_eat, "Ostatnio zeżarło {:.0f} minut temu", "Ostatnio zeżarło {:.1f} godziny temu",
+            self._speak_timed(last_eat, "Ostatnio zeżarło {:.0f} minut temu", "Ostatnio zeżarło {} godzin {} minut temu",
                               "Nie karmiliście dziecka od ponad 3 godzin, łajdaki", 3 )
 
     def _handle_set_last_eat(self):
@@ -171,11 +173,11 @@ class Cobra(threading.Thread):
         self._speaker.Speak("Doskonale, niech nam rośnie, przyjęłam")
 
     def _handle_get_last_sleep(self):
-        last_eat = self._basket.get_last_sleep_date()
-        if last_eat == None:
+        last_sleep = self._basket.get_last_sleep_date()
+        if last_sleep == None:
             self._speaker.Speak("Nie wiem kiedy ostatni raz spał")
         else:
-            self._speak_timed(last_eat, "Ostatnio zasnął {:.0f} minut temu", "Ostatnio zasnął {:.1f} godziny temu",
+            self._speak_timed(last_sleep, "Ostatnio zasnął {:.0f} minut temu", "Ostatnio zasnął {} godzin {} minut temu",
                               "Jupi, śpi już od ponad 3 godzin", 3 )
 
     def _handle_set_last_sleep(self):
